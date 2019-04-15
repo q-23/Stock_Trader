@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <stockSell
+                    :key="brand.name"
                     v-for="brand in brands"
-                    v-if="brand.owned > 0"
                     @stockSold="sold(brand, $event)"
             >
                 <p slot="brand">{{brand.brand}}</p>
@@ -24,7 +24,7 @@
         },
         computed: {
             brands() {
-                return this.$store.state.market;
+                return this.$store.state.market.filter(e=>e.owned>0);
             }
         },
         methods: {

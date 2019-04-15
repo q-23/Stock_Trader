@@ -3,6 +3,7 @@
         <div class="row">
             <stockBuy @stockBought="bought(brand, $event)"
                       v-for="brand in brands"
+                      :key="brand.name"
             >
                 <p slot="brand">{{brand.brand}}</p>
                 <p slot="price">{{brand.price}}</p>
